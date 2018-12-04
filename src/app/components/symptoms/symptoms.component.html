@@ -1,0 +1,38 @@
+<div class="container-fluid symptoms-form">
+  <div class="alert alert dismissible alert-danger" *ngIf="loading_error">
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Token expired! Please request a new token
+  </div>
+  <div class="form-group">
+    <input class="form-control" rows="5"
+              placeholder="Enter Symptoms here"
+              [(ngModel)]="current_symptom" (keyup)="filterSuggestions()" />
+  </div>
+  <div class="suggestions" *ngIf="filtered.length > 0">
+    <ul *ngFor="let item of filtered">
+      <li>
+        <span (click)="select(item)">{{item}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div *ngFor="let item of selected">
+      <div class="selected" >
+        <span>{{item}}<i class="fa fa-remove remove-icon" (click)="remove(item)"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group year_of_birth">
+    <label for="year_of_birth">Year of birth: </label>
+    <input type="number" id="year_of_birth" min="1900" max="2020" step="1" [(ngModel)]="year_of_birth" />
+  </div>
+  <div class="form-group gender">
+    <label for="gender">Gender: </label>
+    <input  type="radio" id="gender" name="gender" value="male" [(ngModel)]="gender"/> Male
+    <input  type="radio"  name="gender" value="female" [(ngModel)]="gender"/> Female
+  </div>
+  <button class="btn btn-primary form-control"
+          (click)="onSubmit()" [disabled]="selected.length < 1 || gender.length <1">
+    SUBMIT
+  </button>
+</div>

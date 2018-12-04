@@ -1,0 +1,14 @@
+footer {
+  color: #ffffff;
+  background: #000000;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  padding:10px;
+  width:100%;
+  word-spacing: 4px;
+}
+
+.love-icon {
+  color: #ff1493;
+}

@@ -1,0 +1,9 @@
+.navbar-default {
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px #888888;
+  -moz-box-shadow: 0 0 8px #888888;
+  -webkit-box-shadow: 0 0 8px #888888;
+  padding:5px;
+  font-size:22px;
+}
